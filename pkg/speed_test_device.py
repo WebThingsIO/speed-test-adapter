@@ -71,4 +71,4 @@ class SpeedTestSensor(Device):
                 prop.set_cached_value(round(value))
                 self.notify_property_changed(prop)
 
-            time.sleep(self.poll_interval)
+            time.sleep(self.poll_interval * 60)
