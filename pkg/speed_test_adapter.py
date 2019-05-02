@@ -26,6 +26,7 @@ class SpeedTestAdapter(Adapter):
         self.pairing = False
         self.provider = None
         self.poll_interval = None
+        self.server_id = None
         self.load_config()
 
     def load_config(self):
@@ -44,6 +45,12 @@ class SpeedTestAdapter(Adapter):
 
         self.provider = config['provider']
         self.poll_interval = config['pollInterval']
+
+        if 'server' in config and \
+                type(config['serverID']) is int and \
+                config['serverID'] != 0:
+            self.server_id = config['serverID']
+
         self.start_pairing()
 
     def start_pairing(self, timeout=None):
@@ -58,6 +65,7 @@ class SpeedTestAdapter(Adapter):
                 self,
                 _id,
                 self.provider,
-                self.poll_interval
+                self.poll_interval,
+                self.server_id,
             )
             self.handle_device_added(device)

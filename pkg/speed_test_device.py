@@ -10,7 +10,7 @@ import time
 class SpeedTestSensor(Device):
     """Internet speed test device type."""
 
-    def __init__(self, adapter, _id, provider, poll_interval):
+    def __init__(self, adapter, _id, provider, poll_interval, server_id):
         """
         Initialize the object.
 
@@ -18,6 +18,7 @@ class SpeedTestSensor(Device):
         _id -- ID of this device
         provider -- the data provider
         poll_interval -- interval at which to poll the provider, in minutes
+        server_id -- ID of server to use (for speedtest.net)
         """
         Device.__init__(self, adapter, _id)
         self._type = ['MultiLevelSensor']
@@ -25,6 +26,7 @@ class SpeedTestSensor(Device):
 
         self.provider = provider
         self.poll_interval = poll_interval
+        self.server_id = server_id
 
         self.name = 'Internet speed test'
         self.description = 'Internet speed test'
@@ -58,7 +60,12 @@ class SpeedTestSensor(Device):
             elif self.provider == 'speedtest.net':
                 try:
                     t = speedtest.Speedtest()
-                    t.get_servers([])
+
+                    if self.server_id is not None:
+                        t.get_servers(servers=[self.server_id])
+                    else:
+                        t.get_servers()
+
                     t.get_best_server()
                     t.download()
                     value = t.results.download / 1000 / 1000
