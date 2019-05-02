@@ -39,6 +39,7 @@ class SpeedTestSensor(Device):
                 'unit': 'Mbps',
                 'minimum': 0,
                 'maximum': 10000,  # 10 Tbps... had to have something here
+                'readOnly': True,
             }
         )
         self.properties['download'].set_cached_value(0)
