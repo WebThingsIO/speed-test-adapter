@@ -1,7 +1,7 @@
 {
   "name": "speed-test-adapter",
   "display_name": "Speed Test",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Internet speed test adapter plugin for Mozilla WebThings Gateway",
   "author": "Mozilla IoT",
   "main": "main.py",
@@ -22,9 +22,11 @@
   },
   "files": [
     "LICENSE",
+    "README.md",
     "SHA256SUMS",
     "lib",
     "main.py",
+    "manifest.json",
     "pkg/__init__.py",
     "pkg/speed_test_adapter.py",
     "pkg/speed_test_device.py"

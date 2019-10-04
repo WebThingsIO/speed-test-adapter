@@ -1,0 +1,51 @@
+{
+  "author": "Mozilla IoT",
+  "description": "Internet speed test adapter plugin for Mozilla WebThings Gateway",
+  "gateway_specific_settings": {
+    "webthings": {
+      "exec": "python3 {path}/main.py",
+      "primary_type": "adapter",
+      "strict_max_version": "*",
+      "strict_min_version": "0.10.0"
+    }
+  },
+  "homepage_url": "https://github.com/mozilla-iot/speed-test-adapter",
+  "id": "speed-test-adapter",
+  "license": "MPL-2.0",
+  "manifest_version": 1,
+  "name": "Speed Test",
+  "options": {
+    "default": {
+      "provider": "fast.com",
+      "pollInterval": 60
+    },
+    "schema": {
+      "type": "object",
+      "required": [
+        "provider",
+        "pollInterval"
+      ],
+      "properties": {
+        "provider": {
+          "description": "Speed test data provider to use",
+          "type": "string",
+          "enum": [
+            "fast.com",
+            "speedtest.net"
+          ]
+        },
+        "pollInterval": {
+          "description": "Interval in minutes at which to poll the provider",
+          "type": "integer",
+          "minimum": 10
+        },
+        "serverID": {
+          "description": "ID of specific server to use, if using speedtest.net as provider",
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "short_name": "Speed Test",
+  "version": "0.2.0"
+}
