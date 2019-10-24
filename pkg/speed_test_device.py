@@ -46,6 +46,14 @@ class SpeedTestSensor(Device):
         )
         self.properties['download'].set_cached_value(0)
 
+        self.links = [
+            {
+                'rel': 'alternate',
+                'mediaType': 'text/html',
+                'href': 'https://{}'.format(self.provider),
+            },
+        ]
+
         t = threading.Thread(target=self.poll)
         t.daemon = True
         t.start()
