@@ -36,7 +36,7 @@ class SpeedTestSensor(Device):
             'download',
             {
                 '@type': 'LevelProperty',
-                'label': 'Download Speed',
+                'title': 'Download Speed',
                 'type': 'integer',
                 'unit': 'Mbps',
                 'minimum': 0,
