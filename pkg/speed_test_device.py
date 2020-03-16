@@ -64,7 +64,10 @@ class SpeedTestSensor(Device):
             value = None
 
             if self.provider == 'fast.com':
-                value = fastdotcom.fast_com()
+                try:
+                    value = fastdotcom.fast_com()
+                except:  # noqa
+                    pass
             elif self.provider == 'speedtest.net':
                 try:
                     t = speedtest.Speedtest()
