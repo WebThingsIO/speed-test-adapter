@@ -1,4 +1,4 @@
-"""Speed test adapter for Mozilla WebThings Gateway."""
+"""Speed test adapter for WebThings Gateway."""
 
 from os import path
 import functools

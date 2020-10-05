@@ -1,4 +1,4 @@
-"""Speed test adapter for Mozilla WebThings Gateway."""
+"""Speed test adapter for WebThings Gateway."""
 
 from gateway_addon import Device, Property
 import fastdotcom
