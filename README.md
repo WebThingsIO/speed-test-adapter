@@ -18,3 +18,8 @@ If you're running this add-on outside of the official gateway image for the Rasp
 ```
 sudo pip3 install git+https://github.com/WebThingsIO/gateway-addon-python.git
 ```
+
+# Troubleshooting
+
+* When no speedtest is executed and the gauge stays at `0`, the CA certificates may need to be refreshed.
+  * On the system running the gateway execute: `# update-ca-certificates --fresh`
